@@ -1,11 +1,6 @@
 import HelloWorld from '@/components/HelloWorld.vue'
 
-const HEADERS = {
-  'Accept': 'application/json',
-  'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36',
-  'Referer': 'https://www.sofascore.com/',
-  'Origin': 'https://www.sofascore.com',
-}
+const HEADERS = { Accept: 'application/json' }
 
 // Sofascore usa valori numerici per i punti del game
 const PUNTI = { 0: '0', 1: '15', 2: '30', 3: '40', 4: 'AD' }
@@ -67,7 +62,9 @@ export default {
 
       // serving: 1 = home, 2 = away
       // homeScore.point / awayScore.point contengono i punti del game corrente (0,1,2,3,4)
-      const serving = null
+      // Log temporaneo per vedere la struttura reale dei campi live
+      console.log('[live event]', e.id, 'homeScore:', JSON.stringify(e.homeScore), 'awayScore:', JSON.stringify(e.awayScore))
+      const serving = e.homeScore?.serving === true ? 1 : e.awayScore?.serving === true ? 2 : null
 
       return {
         id: e.id,

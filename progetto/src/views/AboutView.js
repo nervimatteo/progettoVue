@@ -1,11 +1,6 @@
 import HelloWorld from '@/components/HelloWorld.vue'
 
-const HEADERS = {
-  'Accept': 'application/json',
-  'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36',
-  'Referer': 'https://www.sofascore.com/',
-  'Origin': 'https://www.sofascore.com',
-}
+const HEADERS = { Accept: 'application/json' }
 
 const FASI = {
   'Final': 'Finale',
@@ -114,7 +109,7 @@ export default {
         sets.push({ g1, g2 })
       }
 
-      const serving = null
+      const serving = e.homeScore?.serving === true ? 1 : e.awayScore?.serving === true ? 2 : null
 
       return {
         id: e.id,
