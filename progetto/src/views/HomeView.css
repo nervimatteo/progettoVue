@@ -1,0 +1,136 @@
+* { box-sizing: border-box; }
+
+.app {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 1.5rem 1rem;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+/* ── Header ── */
+.intestazione {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.5rem;
+}
+.logo { display: flex; align-items: center; gap: 10px; }
+.logo-pallina {
+  width: 10px; height: 10px;
+  border-radius: 50%;
+  background: #c8a84b;
+  display: inline-block;
+}
+.logo-testo { font-size: 22px; font-weight: 600; color: #1a1a1a; }
+
+.badge-live {
+  display: flex; align-items: center; gap: 6px;
+  background: #fff0f0;
+  border: 1px solid #f09595;
+  border-radius: 20px;
+  padding: 4px 12px;
+}
+.punto-live {
+  width: 7px; height: 7px;
+  border-radius: 50%;
+  background: #e24b4a;
+  animation: pulse 1.2s ease-in-out infinite;
+  display: inline-block;
+}
+.testo-live { font-size: 12px; font-weight: 500; color: #a32d2d; }
+@keyframes pulse { 0%,100% { opacity:1; } 50% { opacity:0.3; } }
+
+/* ── Filtro ── */
+.filtro-ricerca { margin-bottom: 1rem; }
+.input-filtro {
+  width: 100%;
+  padding: 10px 14px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  font-size: 14px;
+  outline: none;
+}
+.input-filtro:focus { border-color: #c8a84b; }
+
+/* ── Sezione ── */
+.etichetta-sezione {
+  font-size: 11px; color: #999;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 8px;
+}
+
+/* ── Messaggi stato ── */
+.msg-stato { padding: 12px; text-align: center; color: #555; font-size: 14px; }
+.msg-stato.errore { color: #a32d2d; background: #fff0f0; border-radius: 8px; margin-bottom: 12px; }
+
+/* ── Griglia partite ── */
+.griglia-partite { display: flex; flex-direction: column; gap: 10px; margin-bottom: 1.5rem; }
+
+.scheda-partita {
+  background: white;
+  border: 1px solid #eee;
+  border-radius: 12px;
+  padding: 14px 16px;
+  cursor: pointer;
+  transition: border-color 0.15s;
+}
+.scheda-partita:hover { border-color: #ccc; }
+.scheda-partita.selezionata { border: 2px solid #c8a84b; }
+
+.meta-partita {
+  display: flex; justify-content: space-between; align-items: center;
+  margin-bottom: 10px;
+}
+.torneo { font-size: 11px; color: #999; text-transform: uppercase; letter-spacing: 0.4px; }
+
+.stato-partita { font-size: 11px; padding: 2px 8px; border-radius: 10px; font-weight: 500; }
+.stato-partita.live { color: #0f6e56; background: #e1f5ee; }
+
+/* ── Giocatori ── */
+.giocatori { display: flex; flex-direction: column; gap: 8px; }
+.riga-giocatore {
+  display: flex; align-items: center; justify-content: space-between;
+}
+.nome-giocatore { font-size: 14px; font-weight: 500; color: #1a1a1a; }
+.punteggi { display: flex; gap: 5px; align-items: center; }
+
+.punteggio-set {
+  width: 26px; height: 26px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 13px; font-weight: 500;
+  border-radius: 4px;
+  color: #777; background: #f5f5f5;
+}
+.punteggio-set.vinto { background: #1a1a1a; color: white; }
+
+.punteggio-game {
+  width: 32px; height: 32px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 15px; font-weight: 600;
+  border: 1px solid #c8a84b;
+  border-radius: 6px;
+  color: #854f0b; background: #faeeda;
+  margin-left: 4px;
+}
+.divisore { height: 1px; background: #f0f0f0; }
+
+/* ── Bandiera inline ── */
+.bandiera-inline {
+  width: 20px; height: 14px;
+  border-radius: 2px; object-fit: cover;
+  margin-right: 6px; vertical-align: middle;
+  flex-shrink: 0;
+}
+
+/* ── Pallino servizio ── */
+.pallino-servizio {
+  font-size: 8px;
+  color: transparent;
+  margin-right: 4px;
+  flex-shrink: 0;
+  transition: color 0.2s;
+}
+.pallino-servizio.visibile {
+  color: #c8a84b;
+}

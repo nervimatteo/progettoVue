@@ -1,0 +1,118 @@
+* { box-sizing: border-box; }
+
+.app {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 1.5rem 1rem;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.intestazione {
+  display: flex; align-items: center; justify-content: space-between;
+  margin-bottom: 1.5rem;
+}
+.logo { display: flex; align-items: center; gap: 10px; }
+.logo-pallina { width: 10px; height: 10px; border-radius: 50%; background: #c8a84b; display: inline-block; }
+.logo-testo { font-size: 22px; font-weight: 600; color: #1a1a1a; }
+
+.box-ricerca { margin-bottom: 1.25rem; }
+.input-ricerca {
+  width: 100%; padding: 10px 14px;
+  border: 1px solid #ddd; border-radius: 10px;
+  font-size: 14px; outline: none;
+}
+.input-ricerca:focus { border-color: #c8a84b; }
+
+.msg-stato { padding: 12px; text-align: center; color: #555; font-size: 14px; }
+.msg-stato.errore { color: #a32d2d; background: #fff0f0; border-radius: 8px; margin-bottom: 12px; }
+
+.etichetta-sezione {
+  font-size: 11px; color: #999; text-transform: uppercase;
+  letter-spacing: 0.5px; margin-bottom: 8px;
+}
+
+.lista-tornei { display: flex; flex-direction: column; gap: 8px; margin-bottom: 1.5rem; }
+.scheda-torneo {
+  background: white; border: 1px solid #eee; border-radius: 12px;
+  padding: 14px 16px; cursor: pointer;
+  display: flex; align-items: center; justify-content: space-between;
+  transition: border-color 0.15s;
+}
+.scheda-torneo:hover { border-color: #c8a84b; }
+.torneo-info { display: flex; flex-direction: column; gap: 3px; }
+.torneo-nome { font-size: 14px; font-weight: 600; color: #1a1a1a; }
+.torneo-categoria { font-size: 12px; color: #999; }
+.torneo-freccia { font-size: 20px; color: #ccc; }
+
+.btn-indietro {
+  background: none; border: 1px solid #ddd; border-radius: 8px;
+  padding: 6px 14px; font-size: 13px; cursor: pointer; color: #555;
+  margin-bottom: 12px; transition: border-color 0.15s;
+}
+.btn-indietro:hover { border-color: #999; }
+.titolo-torneo { font-size: 18px; font-weight: 600; color: #1a1a1a; margin-bottom: 12px; }
+
+.griglia-partite { display: flex; flex-direction: column; gap: 10px; margin-bottom: 1.5rem; }
+.scheda-partita { background: white; border: 1px solid #eee; border-radius: 12px; padding: 14px 16px; }
+
+.meta-partita {
+  display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;
+}
+.meta-sinistra { display: flex; align-items: center; gap: 8px; }
+.orario { font-size: 12px; color: #999; font-weight: 500; }
+.fase-partita {
+  font-size: 11px; font-weight: 500;
+  color: #854f0b; background: #faeeda;
+  border: 1px solid #c8a84b;
+  padding: 2px 8px; border-radius: 10px;
+}
+
+.stato-partita { font-size: 11px; padding: 2px 8px; border-radius: 10px; font-weight: 500; }
+.stato-partita.inprogress { color: #0f6e56; background: #e1f5ee; }
+.stato-partita.finished   { color: #555;    background: #f0f0f0; }
+.stato-partita.scheduled  { color: #1a4fa0; background: #e8effe; }
+
+.giocatori { display: flex; flex-direction: column; gap: 8px; }
+.riga-giocatore { display: flex; align-items: center; justify-content: space-between; }
+.nome-giocatore { font-size: 14px; font-weight: 500; color: #1a1a1a; }
+.nome-giocatore.vincitore { font-weight: 700; }
+.check-vincitore { color: #0f6e56; font-size: 12px; margin-left: 4px; }
+.punteggi { display: flex; gap: 5px; align-items: center; }
+
+.punteggio-set {
+  width: 26px; height: 26px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 13px; font-weight: 500; border-radius: 4px;
+  color: #777; background: #f5f5f5;
+}
+.punteggio-set.vinto { background: #1a1a1a; color: white; }
+
+.punteggio-game {
+  width: 32px; height: 32px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 15px; font-weight: 600;
+  border: 1px solid #c8a84b; border-radius: 6px;
+  color: #854f0b; background: #faeeda;
+  margin-left: 4px;
+}
+.divisore { height: 1px; background: #f0f0f0; }
+
+.scheda-partita { cursor: pointer; transition: border-color 0.15s; }
+.scheda-partita:hover { border-color: #ccc; }
+.scheda-partita.selezionata { border: 2px solid #c8a84b; }
+
+.bandiera-inline {
+  width: 20px; height: 14px;
+  border-radius: 2px; object-fit: cover;
+  margin-right: 6px; vertical-align: middle;
+  flex-shrink: 0;
+}
+
+.pallino-servizio {
+  font-size: 8px;
+  color: transparent;
+  margin-right: 4px;
+  flex-shrink: 0;
+  transition: color 0.2s;
+}
+.pallino-servizio.visibile { color: #c8a84b; }
