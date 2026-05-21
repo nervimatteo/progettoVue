@@ -76,7 +76,6 @@
 <script>
 import HelloWorld from '@/components/HelloWorld.vue'
 
-const CHIAVE_GROQ = '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'
 const INTESTAZIONI_SOFASCORE = { 'Accept': 'application/json' }
 
 export default {
@@ -90,7 +89,6 @@ export default {
       errore: null,
       filtroTorneo: '',
       intervalloAggiornamento: null,
-      GROQ_KEY: CHIAVE_GROQ,
     }
   },
   computed: {
