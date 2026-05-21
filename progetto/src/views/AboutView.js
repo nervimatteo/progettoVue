@@ -109,7 +109,7 @@ export default {
         sets.push({ g1, g2 })
       }
 
-      const serving = e.homeScore?.serving ? 1 : e.awayScore?.serving ? 2 : null
+      const serving = e.homeScore?.serving === true ? 1 : e.awayScore?.serving === true ? 2 : null
 
       return {
         id: e.id,
@@ -200,24 +200,7 @@ export default {
           return nuova
         })
 
-        // Fetch serving e punti per le partite live
-        await Promise.allSettled(partiteMappate
-          .filter(p => p.tipoStato === 'inprogress')
-          .map(async p => {
-            try {
-              const res = await fetch(
-                `https://api.sofascore.com/api/v1/event/${p.id}/details`,
-                { headers: HEADERS }
-              )
-              const det = await res.json()
-              if (det.event?.servingTeam != null) p.serving = det.event.servingTeam
-              if (det.event?.homeScore?.point != null) {
-                p.punti1 = this.formattaPunti(det.event.homeScore.point)
-                p.punti2 = this.formattaPunti(det.event.awayScore.point)
-              }
-            } catch (err) { /* dettagli non disponibili */ }
-          })
-        )
+
 
         this.partiteTorneo = partiteMappate
 

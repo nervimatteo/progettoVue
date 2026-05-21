@@ -62,7 +62,9 @@ export default {
 
       // serving: 1 = home, 2 = away
       // homeScore.point / awayScore.point contengono i punti del game corrente (0,1,2,3,4)
-      const serving = e.lastPeriod === 'home' ? 1 : e.lastPeriod === 'away' ? 2 : (e.homeScore?.serving ? 1 : e.awayScore?.serving ? 2 : null)
+      // Log temporaneo per vedere la struttura reale dei campi live
+      console.log('[live event]', e.id, 'homeScore:', JSON.stringify(e.homeScore), 'awayScore:', JSON.stringify(e.awayScore))
+      const serving = e.homeScore?.serving === true ? 1 : e.awayScore?.serving === true ? 2 : null
 
       return {
         id: e.id,
@@ -115,24 +117,7 @@ export default {
           return nuova
         })
 
-        // Fetch dettagli live (serving + punti) per ogni partita in parallelo
-        await Promise.allSettled(partiteMappate.map(async p => {
-          try {
-            const res = await fetch(
-              `https://api.sofascore.com/api/v1/event/${p.id}/details`,
-              { headers: HEADERS }
-            )
-            const det = await res.json()
-            console.log('[serving debug]', p.id, JSON.stringify(det).slice(0, 400))
-            if (det.event?.servingTeam != null) {
-              p.serving = det.event.servingTeam
-            }
-            if (det.event?.homeScore?.point != null) {
-              p.punti1 = this.formattaPunti(det.event.homeScore.point)
-              p.punti2 = this.formattaPunti(det.event.awayScore.point)
-            }
-          } catch (e) { /* dettagli non disponibili */ }
-        }))
+
 
         this.elencoPartite = partiteMappate
 
@@ -201,7 +186,7 @@ export default {
 
   mounted() {
     this.caricaPartite()
-    this.intervalloAggiornamento = setInterval(this.caricaPartite, 10000)
+    this.intervalloAggiornamento = setInterval(this.caricaPartite, 5000)
   },
 
   beforeUnmount() {

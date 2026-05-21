@@ -2,7 +2,7 @@
   <div id="app">
     <nav class="barra-navigazione">
       <router-link to="/" class="collegamento-nav">🎾 Live</router-link>
-      <router-link to="/cerca" class="collegamento-nav">🔍 Cerca Giocatore</router-link>
+      <router-link to="/cerca" class="collegamento-nav">🔍 Cerca Tornei</router-link>
     </nav>
     <router-view />
   </div>
